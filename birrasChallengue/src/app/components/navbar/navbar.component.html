@@ -1,0 +1,33 @@
+<nav class="navbar navbar-toggleable-md  navbar-expand-lg navbar-dark bg-dark bg-faded" style="width: 100%;">
+    <a class="navbar-brand" [routerLink]="['/main']">Birras Meeting</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item " routerLinkActive='active'>
+
+                <a class="nav-link" [routerLink]="['/pronostico']">Pronóstico del tiempo</a>
+            </li>
+            <li class="nav-item" routerLinkActive='active'>
+                <a class="nav-link" [routerLink]="['/evento']" *ngIf="isAdmin == 'true'">Crear Evento</a>
+            </li>
+
+            <li class="nav-item" routerLinkActive='active'>
+
+                <a class="nav-link" [routerLink]="['/calculo']" *ngIf="isAdmin == 'true'">Calcular cajas de birra</a>
+            </li>
+            <li class="nav-item" routerLinkActive='active'>
+
+                <a class="nav-link" [routerLink]="['/listaEvento']"> Meets!</a>
+            </li>
+            <li class="nav-item" routerLinkActive='active'>
+                <a class="nav-link" [routerLink]="['/login']">Salir</a>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <h5 class=" text-white"> {{ userLog.nombre }}</h5>
+        </form>
+    </div>
+</nav>

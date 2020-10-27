@@ -1,0 +1,47 @@
+<app-navbar></app-navbar>
+
+<div class="jumbotron jumbotron-fluid fad">
+
+    <div class="container animated fadeIn">
+
+        <h1 class="display-4"> Calculando las birras</h1>
+        <p class="lead"> Aqui tenemos una pequena calculadora que, dependiendo de la temperatura nos dira cuantas birras comprar!</p>
+
+
+    </div>
+</div>
+
+<div class="container fadeIn animated">
+
+
+    <div class="card text-white bg-info mt-5">
+        <div class="card-header">Calculadora Birrera</div>
+        <div class="card-body">
+            <div class="form-group">
+                <label for="exampleInputEmail1">Temperatura</label>
+                <input type="number" class="form-control" value="0" #temperatura>
+                <small id="emailHelp" class="form-text" *ngIf="completarTemp">Por favor ingrese la temperatura de la fecha</small>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Cantidad de participantes</label>
+                <input type="number" class="form-control" value="0" #participantes>
+                <small id="emailHelp" class="form-text" *ngIf="completarEmp">Por favor ingrese la cantidad de asistentes al after</small>
+
+            </div>
+            <button type="button" class="btn btn-primary" (click)="calcular(temperatura.value, participantes.value)">Calcular</button>
+
+        </div>
+
+    </div>
+
+
+    <div class="card text-white bg-danger mt-5 animated fadeIn" *ngIf="mostrar">
+        <div class="card-header">Ya esta todo listo!</div>
+        <div class="card-body">
+            <p class="card-text">Esperamos que te salga todo bien!</p>
+            <p class="card-text">Tenes que comprar una cantidad de : {{ cantCajas }} cajas de birra!</p>
+
+
+        </div>
+
+    </div>

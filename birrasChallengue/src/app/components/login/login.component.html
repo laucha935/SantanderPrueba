@@ -1,0 +1,39 @@
+<div class="jumbotron jumbotron-fluid fad">
+
+    <div class="container animated fadeIn">
+
+        <h1 class="display-4"> Bienvenidos al Birras Meets!</h1>
+        <p class="lead"> A continuación ingresa tus datos de usuario y contraseña</p>
+
+
+    </div>
+</div>
+
+
+<div class="container mt-5 col-md-5">
+
+
+    <div class="card text-white bg-info">
+        <div class="card-body">
+            <form>
+                <div class="form-group">
+                    <label> User </label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" #user required>
+                    <small id="emailHelp" class="text-white" *ngIf="!completarDatos">Por Favor ingrese su nombre de usuario</small>
+                    <small id="emailHelp" class="text-danger" *ngIf="completarDatos">Por favor completar los datos faltantes!</small>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Contrasena</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1" #password required>
+                    <small id="emailHelp" class="text-white" *ngIf="!completarDatos">Por Favor ingrese su contraseña</small>
+                    <small id="emailHelp" class="text-danger" *ngIf="completarDatos">Por favor completar los datos faltantes!</small>
+                </div>
+
+                <p class="text-danger" *ngIf="!loginVal">User/contrasena incorrectos, por favor intente nuevamente</p>
+                <button type="button" class="btn btn-primary" (click)="ingresar(user.value, password.value)">Ingresar</button>
+            </form>
+
+        </div>
+
+    </div>
+</div>

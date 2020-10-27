@@ -1,0 +1,45 @@
+<app-navbar></app-navbar>
+<div class="jumbotron jumbotron-fluid fad">
+
+    <div class="container animated fadeIn">
+
+        <h1 class="display-4"> Estas son tus proximas meets!</h1>
+        <p class="lead"> En esta seccion podras ver las proximas meets para asistir junto con tus companeros!</p>
+
+
+    </div>
+
+
+
+
+</div>
+
+<div class="container">
+
+    <div class=" animated fadeIn m-5 ">
+        <div class="row ">
+            <div *ngFor="let item of meetsPending; let i = index" class="card col-md-5  m-1 border-primary">
+
+                <div class="card-body">
+                    <h5 class="card=title" #valor> {{ item.titulo }}</h5>
+
+                    <p class="card-text">
+                        <br>
+                        <span class="text-primary"> {{ item.fechaEvento }} </span>
+                        <br>
+                        <span class="text-primary"> {{ item.desc }}</span>
+                        <br>
+
+                    </p>
+                    <button type="button" class="btn btn-danger" *ngIf="!item.asist" (click)="sumarAsist(i)"> Asistir!</button>
+                    <div class="alert alert-success col-md-8 mt-3 fadeIn animated " *ngIf="item.asist"> <strong> Confirmaste asistencia ! <span>&#10003;</span></strong></div>
+                    <button type="button" class="btn btn-primary btn-space" (click)="modificarEstado(i)" *ngIf="!item.check">Estuve aca!</button>
+                    <div class="alert alert-success col-md-8 fadeIn animated " *ngIf="item.check"> <strong> Participaste de la meet !<span>&#10003;</span></strong></div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>

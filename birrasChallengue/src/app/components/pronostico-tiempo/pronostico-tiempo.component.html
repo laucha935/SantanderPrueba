@@ -1,0 +1,39 @@
+<app-navbar></app-navbar>
+
+<div class="jumbotron jumbotron-fluid">
+    <div class="container animated fadeIn fast">
+
+        <h1 class="mt-5 display-10">Bienvenido al pronóstico del tiempo</h1>
+
+        <p class="lead">Aca vas a poder ver que temperatura va a hacer en los proximos días!</p>
+
+
+    </div>
+
+</div>
+
+<div class="container">
+
+    <div class=" animated fadeIn m-5 ">
+        <div class="row ">
+            <div *ngFor="let item of tiempo" class="card col-md-5  m-1 border-primary">
+
+                <div class="card-body">
+                    <h5 class="card=title" #valor> Pronóstico del día : {{ item.datetime | slice:8:10 }}-{{ item.datetime | slice:5:7 }}-{{ item.datetime | slice:0:4 }}</h5>
+                    <h6> {{ item.weather.description }}</h6>
+                    <p class="card-text">
+                        <br>
+                        <span class="text-primary">Temperatura máxima {{ item.app_max_temp }}</span>
+                        <br>
+                        <span class="text-primary">Temperatura mínima  {{ item.app_min_temp }}</span>
+                    </p>
+
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+</div>

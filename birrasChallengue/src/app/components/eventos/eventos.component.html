@@ -1,0 +1,62 @@
+<app-navbar></app-navbar>
+
+<div class="jumbotron jumbotron-fluid fad">
+
+    <div class="container animated fadeIn">
+
+        <h1 class="display-4"> Vamos a crear una meeting!</h1>
+        <p class="lead"> En esta sección vas a poder crear una meeting para poder invitar a tus compañeros!</p>
+        <button class="btn btn-danger" type="button" (click)="activar()"> Crear Meeting</button>
+
+    </div>
+
+
+
+
+</div>
+
+
+<div class="container mt-5 ">
+
+
+    <div class="card text-white bg-info fadeIn animated" *ngIf="activarCard">
+        <div class="card-body">
+            <form>
+                <div class="form-group">
+                    <label> Título de la meet!  </label>
+                    <br>
+                    <div class="alert alert-danger" *ngIf="!completar"> Por favor completa los campos faltantes! </div>
+
+                    <input type="text" class="form-control" #titulo>
+                    <small id="emailHelp" class="text-white">Ingresa el Título que mejor describa la meet!</small>
+
+                </div>
+
+                <label class="mt-5"> Selecciona la fecha !</label>
+                <br>
+                <ngb-datepicker class="mt=5" #DatosFecha></ngb-datepicker>
+
+                <div class="form-group mt-5">
+
+                    <label for="exampleInputPassword1">Invitacion </label>
+                    <input type="text" class="form-control" id="exampleInputPassword1" #desc required>
+                    <small id="emailHelp" class="text-white"> Podes poner la temática, que la birra no va a faltar, la música!</small>
+                </div>
+
+
+                <button type="button" class="btn btn-primary" (click)="verDatos(DatosFecha)" (click)="crearEvento( titulo.value, DatosFecha, desc.value)">Crear!</button>
+            </form>
+
+        </div>
+
+    </div>
+
+    <div class="card text-white bg-danger mb-3 animated fadeIn" *ngIf="eventoCreado">
+
+        <div class="card-body">
+            <h5 class="card-title"> Felicitaciones, creaste la meet!</h5>
+            <p class="card-text"> Ya está todo listo! No te olvides de ver el pronostico para calcular las birras!</p>
+        </div>
+    </div>
+
+</div>
